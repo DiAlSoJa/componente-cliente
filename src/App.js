@@ -3,6 +3,7 @@ import React, {useEffect } from 'react';
 import './App.css';
 import Router from './router/Router';
 import Footer from './components/Footer/Footer';
+import Loader from './components/Loader/Loader';
 function App() {
   useEffect(() => {
     const isDarkMode = localStorage.getItem('dark-mode') === 'true';
@@ -18,6 +19,7 @@ function App() {
     <>
       <div className="container">
         <Router/>
+
       </div>
       <Footer/>
     </>

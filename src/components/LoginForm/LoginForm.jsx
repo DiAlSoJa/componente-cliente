@@ -5,7 +5,7 @@ const LoginForm = () => {
     const [correo,setCorreo]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError] = useState(null);
-
+    const [token,setToken] = useState(null);
 
     const onChangeCorreo=(e)=>{
         setCorreo(e.target.value);
@@ -32,7 +32,7 @@ const LoginForm = () => {
         })
         .then(res=>res.json())
         .then(datos=> {
-            
+            console.log(datos)
             if(datos.token){
                  localStorage.setItem("x-token",datos.token);
                  setError(null);
