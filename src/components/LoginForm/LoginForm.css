@@ -1,0 +1,96 @@
+.form{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form form{
+    padding: 2rem ;
+    background-color: var(--color-letra);
+    border-radius: 1rem;
+    width: 450px;
+
+    box-shadow: 6px 6px 6px 0px var(--color-transparente);
+    -webkit-box-shadow: 6px 6px 6px 0px var(--color-transparente);
+    -moz-box-shadow: 6px 6px 6px 0px var(--color-transparente);
+}
+.form form h3{
+    font-size: 1.8rem;
+    color: var(--color-background);
+    text-align: center;
+}
+.form form h3 span{
+
+    color: var(--color-resalte);
+
+}
+.form form .form-group{
+    margin: 1rem 0;
+}
+.form form .form-group label{
+    color: var(--color-background);
+    /* font-weight: 800; */
+    display: block;
+    font-size: 1.2rem;
+    margin: .3rem .0 0 .3rem;
+}
+.form form .form-group input{
+    width: 100%;
+    font-size: 1.2rem;
+    padding: .6rem 1rem;
+    font-family: "Monserrat",sans-serif;
+    border: 0;
+    color: var(--color-background);
+    background-color: transparent;
+    border-bottom: 2px solid var(--color-resalte);
+}
+.form form .form-group input:focus{
+    outline: 0;
+
+}
+.form form .errores{
+    position: absolute;
+    color: var(--color-resalte);
+    font-size: 1.1rem;
+
+}
+.form form .form-group button{
+    margin-top: 2rem;
+    width: 100px;
+    padding: .6rem 1rem;
+    font-size: 1.4rem;
+    border: 0;
+    border-radius: 1rem;
+    border: 2px solid var(--color-background);
+    background-color: transparent;
+    color: var(--color-background);
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color .3s ease,
+                color .3s ease;
+}
+.form form .form-group button:hover{
+    padding: .6rem 1rem;
+    /* color: var(--color-background); */
+    background-color: var(--color-resalte);
+}
+
+@media (max-width: 450px) {
+    .form form h3{
+        font-size: 2.5rem;
+
+    }
+    .form form{
+        padding: 1.4rem ;
+        width: 350px;
+    }
+    .form form .form-group button{
+        margin-top: 1rem;
+        padding: .6rem 1rem;
+        font-size: 1rem;
+ 
+    }
+    .form form .form-group{
+        margin: 3rem 0;
+    }
+}

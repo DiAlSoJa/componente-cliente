@@ -1,0 +1,94 @@
+.aside{
+    position: fixed;
+    left: -231px;
+    height: calc(100vh - var(--header-height));
+    top: var(--header-height);
+    z-index: 100000;
+    width: 230px;
+    padding: 0 1rem;
+    background-color: var(--color-background);
+    border-right: 1px solid var(--color-resalte);
+    transition: left .1s ease;
+    
+}
+.aside.open{
+
+    left: 0;
+
+}
+.aside .icono{
+    position: absolute;
+    left: 110%;
+    top: 0;
+    height: 50px;
+    width: 50px;
+    border-radius: .7rem;
+    background-color: var(--color-letra);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.aside .icono i{
+    color: var(--color-background);
+    font-size: 2rem;
+
+}
+.aside .title-admin{
+    text-align: center;
+    color: var(--color-letra);
+}
+.aside nav .list-item{
+    list-style: none;
+    padding: 1rem 0 .5rem 1rem;
+    margin: 1rem 0;
+    border-bottom: 2px solid var(--color-letra);
+}
+.aside nav .list-item{
+    list-style: none;
+    padding: 1rem 0 .5rem 1rem;
+    margin: 1rem 0;
+    border-bottom: 2px solid var(--color-letra);
+}
+
+.aside nav .list-item:hover{
+    border-bottom: 2px solid var(--color-resalte);
+}
+
+.aside nav .list-item a{
+    display: block;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: var(--color-letra);
+}
+.aside nav .list-item:hover a{
+    color:var(--color-resalte);
+}
+.aside nav .list-item.active{
+    border-bottom: 2px solid var(--color-resalte);
+}
+.aside nav .list-item.active a{
+    color:var(--color-resalte);
+}
+.aside .logout{
+    position: absolute;
+    bottom: 4rem;
+    margin-top: 3rem;
+    width: 200px;
+    padding: .6rem 1rem;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 1rem;
+    border: 2px solid var(--color-letra);
+    background-color: transparent;
+    color: var(--color-letra);
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color .3s ease,
+                color .3s ease;
+}
+.aside .logout:hover{
+
+    /* color: var(--color-background); */
+    background-color: var(--color-resalte);
+}

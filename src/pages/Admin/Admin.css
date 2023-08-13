@@ -1,0 +1,119 @@
+.dashboard-content{
+
+    min-height: 100vh;
+
+}
+.dashboard-content h2{
+    color: var(--color-resalte);
+    font-weight: 500;
+    text-align: center;
+}
+
+.dashboard-content .btn-crear{
+    width: 100%;
+    text-align: left;
+}
+.dashboard-content .btn-crear button{
+    padding: .3rem 1rem;
+    border-radius: 1rem;
+    border: 0;
+    border: 1px solid var(--color-letra);
+    font-size: 1rem;
+    background-color: transparent;
+    font-weight: 800;
+    margin-bottom: .5rem;
+    cursor: pointer;
+    color: var(--color-letra);
+    
+}
+/* TABLA------------- */
+.dashboard-content .table{
+    width: 70%;
+    margin: auto;
+    border-collapse: collapse;
+    
+}
+
+.dashboard-content .table thead tr th{
+    text-align: start;
+    margin: 2px;
+    padding: .5rem;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    color: var(--color-resalte);
+    font-weight: 900;
+}
+
+
+.dashboard-content .table tbody tr td{
+    border: 1px solid var(--color-transparente);
+    padding: 1rem .3rem;
+    font-size: .9rem;
+    overflow-x:auto;
+    color: var(--color-letra);
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-align: center;
+}
+ .dashboard-content .table tr td.correo,
+ .dashboard-content .table tr td.nombre{
+
+    text-align: start;
+}
+
+.dashboard-content .table tr td.img-container{
+  text-align: center;
+}
+.dashboard-content .table tr td.img-container img{
+   height: 100px;
+}
+.dashboard-content .table tr td.editar{
+    text-align: center;
+    color: var(--color-transparente);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+.dashboard-content .table tr td.eliminar{
+    color: var(--color-transparente);
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+
+} 
+
+.dashboard-content .table tr th.config,
+.dashboard-content .table tr th.id
+{
+     
+    width: 50px;
+
+}
+
+@media (max-width:500px) {
+    .dashboard-content .table{
+        width: 90%;
+        margin: auto;
+        border-collapse: collapse;
+        
+    }
+    .dashboard-content .table tr th{
+     
+        font-size: .5rem;
+
+    }
+
+    .dashboard-content .table tr td.correo{
+        max-width: 200px;
+        overflow-x: auto;
+    }
+    .dashboard-content .table tr td.correo{
+        max-width: 40px;
+    }
+    .dashboard-content .table tr th.config,
+    .dashboard-content .table tr th.id
+    {
+        
+        max-width: 50px;
+
+    }
+}

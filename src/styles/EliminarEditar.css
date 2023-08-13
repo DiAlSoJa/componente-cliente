@@ -1,0 +1,280 @@
+.eliminar-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    background-color: var(--color-letra);
+    z-index: 1000000;
+    padding: 1rem 2rem;
+}
+
+.eliminar-form h3{
+    color: var(--color-background);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.eliminar-form h3 span{
+    color: var(--color-resalte);
+    text-transform: uppercase;
+}
+.eliminar-form h3{
+    color: var(--color-background);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.eliminar-form .eliminar-botones {
+    display: flex;
+    justify-content: space-evenly;
+}
+.eliminar-form .eliminar-botones .btn{
+    padding: .5rem 1rem;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--color-letra);
+    background-color: var(--color-background);
+    font-weight: 800;
+}
+
+.eliminar-form #eliminar-button{
+    color: var(--color-background) !important;
+    background-color: var(--color-resalte) !important; 
+}
+/*------------------ crear--------------- */
+
+.crear{
+    /* width: 100%; */
+    padding: 2.5rem .5rem 1rem;
+    background-color: rgba(0,0,0,.1);
+    position:fixed;
+    z-index: 10000000;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+ .crear form {
+   margin: auto;
+    padding: 1.5rem 2rem;
+    max-width: 30rem;
+    min-height: 30vh;
+    max-height: 90vh ;
+    border-radius: 1rem;
+    background-color: var(--color-background);
+    /* box-shadow: var(--box-shadow); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* overflow-y: scroll; */
+}
+ .crear form.crear-componente {
+
+    overflow-y: scroll;
+}
+ .crear form .form-thing{
+    /* display: inline-block; */
+    position: relative;
+    width: 100%;
+    /* min-height: 10rem; */
+    margin: .5rem 0 ;
+
+}
+
+ .crear form .form-thing label{
+    display: block;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-weight: lighter;
+    color: var(--color-letra);
+    margin-bottom: 1rem; 
+}
+ 
+ .crear form .form-file:hover{
+    background-color: var(--rgba);
+    
+}
+.crear form .form-file{
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    background-color: var(--bg-black-900);
+    border: 5px dashed var(--text-black-700);
+    cursor: pointer;
+    margin: 1.3rem 0;
+    padding: 3rem 0;
+}
+.crear form .form-file::before{
+    content: "Inserta imagen";
+    position: absolute;
+    top: -2.5rem;
+    left: 0;
+    font-weight: bold;
+    color: var(--text-black-700);
+    font-size: 1.4rem;
+}
+ .crear form .form-file label{
+    display: block;
+    font-size: 1.4rem;
+    text-align: center;
+    /* font-weight: 800; */
+    cursor: pointer;
+    color: var(--color-letra);
+}
+ .crear form .form-file input{
+    position: absolute;
+    display: inline-block;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    
+}
+ .crear form .form-thing input{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--color-resalte);
+    background-color: var(--color-background);
+    font-size: 1.4rem;
+    /* border-radius: 2rem; */
+    padding: .3rem 1rem;
+    color: var(--color-letra);
+}
+
+/* texarea normal________________________ */
+.crear form  .form-thing textarea{
+    resize: none;
+    width: 100%;
+    height: 8rem;
+    border: none;
+    border-bottom: 2px solid var(--color-resalte);
+    background-color: var(--color-background);
+    font-size: 1rem;
+    /* border-radius: 2rem; */
+    padding: .5rem 1rem;
+    color: var(--color-letra);
+    overflow-y: auto;
+}
+.crear form  .form-thing textarea::placeholder{
+    color: #000;
+}
+
+/* texarea normal________________________ */
+
+
+ .crear form .form-thing:last-child{
+   
+    /* margin-right: 0; */
+    width: 100%;
+    text-align: end;
+}
+ .crear form .form-thing button{
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    border: 2px solid var(--color-resalte);
+    background-color: transparent;
+    color: var(--color-letra);
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    text-transform: capitalize; 
+    /* width: 100%; */
+}
+ .crear form .form-thing button:hover{
+
+    background-color: var(--color-resalte);
+
+
+    /* width: 100%; */
+}
+.crear .line{
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: var(--bg-black-900);
+    margin: 1rem 0;
+}
+.crear form .codigos{
+    width: 100%;
+}
+.crear form .codigos .codigos-navigation {
+    margin-left: 1rem;
+    
+}
+
+/* texarea codigos________________________ */
+.crear form .codigos .form-thing textarea{
+    display: none;
+    height: 15rem;
+
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    color: var(--color-letra);
+    margin-top: 1rem;
+}
+.crear form .codigos .form-thing textarea.active{
+    display: inline;
+    
+}
+.crear form .codigos .codigos-navigation label{
+    padding: .5rem .5rem;
+    /* border-radius: 1rem; */
+    /* background-color: var(--color-letra); */
+    color: var(--color-letra);
+    margin: 0 .3rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+/* texarea codigos________________________ */
+.crear form .codigos .codigos-navigation label:hover{
+    border-bottom: 2px solid var(--color-background);
+
+}
+.crear form .codigos .codigos-navigation label.active{
+    border-bottom: 1px solid var(--color-resalte);
+    /* box-shadow: var(--box-shadow); */
+    color: var(--color-resalte);
+}
+
+.cerrar-editar{
+    position: absolute;
+    right: 2rem;
+    top: 5rem;
+
+}
+.cerrar-editar .icon{
+    color: var(--color-resalte);
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+/* categorias input */
+
+.form-thing .categorias{
+    max-width: 20rem;
+}
+.form-thing .categoria{
+    padding: .3rem .7rem;
+    background-color: var(--color-background);
+    border-radius: 2rem;
+    margin:.3rem .3rem 0 0;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 800;
+    color: var(--color-letra);
+    border: 1px solid var(--color-letra);
+}
+.form-thing .categoria.si{
+
+    background-color: var(--color-resalte);
+   
+}
+

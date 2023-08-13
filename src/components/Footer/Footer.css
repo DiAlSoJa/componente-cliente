@@ -1,0 +1,13 @@
+.footer {
+    background-color: var(--color-transparente);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    top: var(--header-height);
+    height: 300px;
+  }
+  
+  .footer__content {
+    color: var(--color-texto);
+    font-size: 14px;
+  }
