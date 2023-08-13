@@ -12,11 +12,6 @@
 }
 
 /* Modo Oscuro */
-body{
-  background-color: var(--color-background);
-
-  transition: background-color .3s ease;
-}
 body.dark-mode {
   /* Colores principales */
   --color-resalte: #f95959;
@@ -26,6 +21,11 @@ body.dark-mode {
   /* Otros colores */
   --color-fondo: #455d7a;
   --color-transparente: rgba(255,255,255,.3);
+}
+body{
+  background-color: var(--color-background);
+
+  transition: background-color .3s ease;
 }
 *{
   padding: 0;

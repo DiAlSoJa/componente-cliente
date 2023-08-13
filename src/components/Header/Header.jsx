@@ -14,12 +14,12 @@ const Header = () => {
         document.body.classList.toggle("dark-mode");
         document.querySelector(".header .toggle .toggle-button").classList.toggle("active");
 
-        // if(document.body.classList.contains("dark")){
-        //     localStorage.setItem("dark-mode","true");
+        if(document.body.classList.contains("dark-mode")){
+            localStorage.setItem("dark-mode","true");
            
-        // }else{
-        //     localStorage.setItem("dark-mode","false");
-        // }
+        }else{
+            localStorage.setItem("dark-mode","false");
+        }
     }
 
 
