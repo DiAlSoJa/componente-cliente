@@ -2,12 +2,15 @@ import React, { useState, useEffect ,useContext} from 'react';
 import EliminarCategoria from "../EliminarCategoria/EliminarCategoria";
 import CrearCategoria from "../CrearCategoria/CrearCategoria";
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
+import EditCategoria from '../EditCategoria/EditCategoria';
 
 const TableCategoria = () => {
     const [categorias,setCategorias] = useState([]);
     const [categoriaEliminar,setCategoriaEliminar]= useState({});
     const [eliminar,setEliminar] = useState(false);
     const [crear,setCrear] = useState(false);
+    const [editar,setEditar] =useState(false);
+    const [categoriaEditar,setCategoriaEditar] = useState({});
     const {actualizar}= useContext(ContextoAdmin);
     
     useEffect(()=>{
@@ -27,6 +30,7 @@ const TableCategoria = () => {
     return ( 
         <>
         {(crear)? <CrearCategoria setCrear={setCrear}/> : ""}
+        {(editar)? <EditCategoria setEditar={setEditar} categoria={categoriaEditar}/> : ""}
         {(eliminar)?  <EliminarCategoria setEliminar={setEliminar} eliminar={categoriaEliminar} /> : ""}
         <h2>Categorias</h2>
             <div className='btn-crear'>
@@ -47,7 +51,7 @@ const TableCategoria = () => {
                             <tr key={categoria._id}>
                                 <td>{categoria._id}</td>
                                 <td className="nombre">{categoria.nombre}</td>
-                                <td className="editar"><i className="fas fa-edit"></i></td>
+                                <td className="editar"><i className="fas fa-edit" onClick={()=>{setEditar(true); setCategoriaEditar(categoria)}}></i></td>
                                 <td className="eliminar"><i className="fas fa-trash" onClick={()=> {setEliminar(true); setCategoriaEliminar({id: categoria._id,nombre: categoria.nombre})}}></i></td>
                             </tr>
 

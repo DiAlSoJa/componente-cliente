@@ -1,28 +1,37 @@
-const EditCategoria = ({setFormularioEditar,categoria}) => {
+import React, { useContext, useState } from 'react';
+import { ContextoAdmin } from '../../contextos/ContextoAdmin';
+
+
+const EditCategoria = ({setEditar,categoria}) => {
     const [nuevoNombre,setNuevoNombre] = useState(categoria.nombre);
 
     const nuevoNombreOnChange= (e)=>setNuevoNombre(e.target.value);
 
+    const {setActualizar} = useContext(ContextoAdmin);
+
     const editarNombre= (e,id="123")=>{
         e.preventDefault();
-        fetch(`http://localhost:8000/api/categoria/${id}`,{
+        fetch(`http://localhost:8000/categoria/${id}`,{
             method: "PUT",
             headers:{
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "x-token": localStorage.getItem("x-token")
             },
             body: JSON.stringify({nombre:nuevoNombre.toUpperCase()})
-        }).then(res=> res.json()).then(datos=>console.log(datos));
+        }).then(res=> res.json()).then(datos=>{
+       
+            setEditar(false);
+            setActualizar(prev=>!prev);
+        });
 
-        setNuevoNombre("");
-        setFormularioEditar(false);
+        
     }
-
 
     return ( 
         <>
             <div className="editar-form">
                 
-                <form onSubmit={(e)=>editarNombre(e,categoria.id)}>
+                <form onSubmit={(e)=>editarNombre(e,categoria._id)}>
                     <h3>Editar Categoria</h3>
                     <div className="form-thing">
                         <label>Nombre</label>
@@ -38,7 +47,7 @@ const EditCategoria = ({setFormularioEditar,categoria}) => {
                     </div>
                 </form>
                 <div className="cerrar-editar">
-                    <FontAwesomeIcon icon={faXmark} className="icon" onClick={()=>{setFormularioEditar(false)}}></FontAwesomeIcon>
+                    <i className="fa-solid fa-xmark i" onClick={()=>{setEditar(false)}}></i>
                 </div>
             </div>
         </>

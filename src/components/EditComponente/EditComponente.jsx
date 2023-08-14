@@ -2,7 +2,7 @@ import { useState,useContext } from "react";
 import { ContextoAdmin } from "../../contextos/ContextoAdmin";
 
 
-const EditComponente = ({setFormularioEditar,componenteEditar,categorias}) => {
+const EditComponente = ({setEditar,componenteEditar,categorias}) => {
 
     const [nuevoTitulo,setNuevoTitulo] = useState(componenteEditar.titulo);
     const [nuevasCategorias,setNuevasCategorias] = useState(componenteEditar.categorias.map(categoria=>categoria.nombre));
@@ -28,7 +28,7 @@ const EditComponente = ({setFormularioEditar,componenteEditar,categorias}) => {
         }).then(res=> res.json()).then(datos=>setActualizar(!actualizar));
 
         setNuevoTitulo("");
-        setFormularioEditar(false);
+        setEditar(false);
 
     }
     
@@ -53,7 +53,7 @@ const EditComponente = ({setFormularioEditar,componenteEditar,categorias}) => {
                     </div>
                 </form>
                 <div className="cerrar-editar">
-                    <i className="fa-solid fa-xmark" onClick={()=>{setFormularioEditar(false)}}></i>
+                    <i className="fa-solid fa-xmark i" onClick={()=>{setEditar(false)}}></i>
                 </div>
             </div>
         </>

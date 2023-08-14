@@ -89,6 +89,78 @@
 
 }
 
+
+/* Editar -------------------------------------------------------- */
+.editar-form{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-transparente);
+    z-index: 1000000000000000;
+}
+.editar-form form{
+    position: absolute;
+    width: 25rem;
+    height: 25rem;
+    background: var(--color-background);
+    z-index: 10000000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--color-transparente);
+    padding: 1rem;
+    text-align: center;
+}
+.editar-form form h3{
+   color: var(--color-resalte);
+   font-size: 1.5rem;
+}
+.editar-form form .form-thing{
+    position: relative;
+    margin: 2rem 0;
+}
+.editar-form form .form-thing label{
+    position: absolute;
+    top: -1.5rem;
+    left: 0;
+    color: var(--color-letra);
+    text-transform: capitalize;
+}
+.editar-form form .form-thing input{
+    width: 100%;
+    font-size: 1.5rem;
+    /* border-radius: 1rem; */
+    border: none;
+    border-bottom: 1px solid var(--color-fondo);
+    padding: 0 1rem ;
+    background-color: transparent;
+    color: var(--color-letra);
+}
+
+.editar-form form .form-thing button{
+    width: 70%;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    border: none;
+    color: var(--color-letra);
+    padding: .5rem 0;
+    background-color: var(--color-resalte);
+    cursor: pointer;
+}
+.cerrar-editar{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+.cerrar-editar i{
+    font-size: 3rem;
+    color: var(--color-letra);
+    cursor: pointer;
+}
+
 @media (max-width:500px) {
     .dashboard-content .table{
         width: 90%;

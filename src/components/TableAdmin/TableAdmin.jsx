@@ -4,11 +4,14 @@ import CrearAdmin from '../CrearAdmin/CrearAdmin';
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 
 import "../../styles/EliminarEditar.css";
+import EditAdmin from '../EditAdmin/EditAdmin';
 const TableAdmin = () => {
     const [admins,setAdmins]= useState([]);
     const [eliminar,setEliminar] = useState(false);
     const [crear,setCrear] = useState(false);
+    const [editar,setEditar]=useState(false);
     const [adminEliminar,setAdminEliminar]= useState({});
+    const [adminEditar,setAdminEditar] =useState({})
 
     const {actualizar}= useContext(ContextoAdmin);
     useEffect(()=>{
@@ -28,6 +31,7 @@ const TableAdmin = () => {
         <>
         {(eliminar)?  <EliminarAdmin setEliminar={setEliminar} eliminar={adminEliminar} /> : ""}
         {(crear)?  <CrearAdmin setCrear={setCrear}/> : ""}
+        {(editar)? <EditAdmin admin={adminEditar} setEditar={setEditar}/>:""}
         <h2>Admin</h2>
             <div className='btn-crear'>
                 <button onClick={()=>setCrear(true)}>Crear +</button>
@@ -48,7 +52,7 @@ const TableAdmin = () => {
                             <tr key={admin.uid} className="admin">
                                 <td>{admin.uid}</td>
                                 <td className='correo'>{admin.correo}</td>
-                                <td className="editar"><i className="fas fa-edit"></i></td>
+                                <td className="editar" ><i className="fas fa-edit" onClick={()=>{setEditar(true); setAdminEditar(admin)}}></i></td>
                                 <td className="eliminar"><i className="fas fa-trash" onClick={()=>{setEliminar(true); setAdminEliminar(admin);}}></i></td>
                             </tr>
                             ); 
