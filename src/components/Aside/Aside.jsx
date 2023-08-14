@@ -27,9 +27,9 @@ const Aside = ({setActualizar}) => {
             <div className="icono" onClick={handleOpen}>
                 {!open
                 ?
-                    <i class="fas fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 :
-                    <i class="fas fa-times"></i>
+                    <i className="fas fa-times"></i>
                 }
             </div>
             <button className="logout" onClick={cerrarSesion}>

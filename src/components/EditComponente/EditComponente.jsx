@@ -1,8 +1,12 @@
+import { useState,useContext } from "react";
+import { ContextoAdmin } from "../../contextos/ContextoAdmin";
 
-const EditComponente = ({setFormularioEditar,componente,categorias}) => {
-    const [nuevoTitulo,setNuevoTitulo] = useState(componente.titulo);
-    const [nuevasCategorias,setNuevasCategorias] = useState(componente.categorias.map(categoria=>categoria.nombre));
-    let [nuevasCategoriasEnviar,setCategoriasEnviar]=useState(componente.categorias.map(categoria=>categoria._id));
+
+const EditComponente = ({setFormularioEditar,componenteEditar,categorias}) => {
+
+    const [nuevoTitulo,setNuevoTitulo] = useState(componenteEditar.titulo);
+    const [nuevasCategorias,setNuevasCategorias] = useState(componenteEditar.categorias.map(categoria=>categoria.nombre));
+    let [nuevasCategoriasEnviar,setCategoriasEnviar]=useState(componenteEditar.categorias.map(categoria=>categoria._id));
     
     const {actualizar,setActualizar}= useContext(ContextoAdmin);
 
@@ -32,7 +36,7 @@ const EditComponente = ({setFormularioEditar,componente,categorias}) => {
         <>
             <div className="editar-form">
                 
-                <form onSubmit={(e)=>editarCompon(e,componente.id)}>
+                <form onSubmit={(e)=>editarCompon(e,componenteEditar.id)}>
                     <h3>Editar Componentes</h3>
                     <div className="form-thing">
                         <label>Titulo</label>
@@ -43,13 +47,13 @@ const EditComponente = ({setFormularioEditar,componente,categorias}) => {
                             onChange={nuevoTitutloOnChange}
                             />
                     </div>
-                    <CategoriasInput categorias={categorias} nuevasCategorias={nuevasCategorias} nuevasCategoriasEnviar={nuevasCategoriasEnviar} setCategoriasEnviar={setCategoriasEnviar}/>
+                    {/* <CategoriasInput categorias={categorias} nuevasCategorias={nuevasCategorias} nuevasCategoriasEnviar={nuevasCategoriasEnviar} setCategoriasEnviar={setCategoriasEnviar}/> */}
                     <div className="form-thing">
                         <button type="submit">Guardar cambios</button>
                     </div>
                 </form>
                 <div className="cerrar-editar">
-                    <FontAwesomeIcon icon={faXmark} className="icon" onClick={()=>{setFormularioEditar(false)}}></FontAwesomeIcon>
+                    <i className="fa-solid fa-xmark" onClick={()=>{setFormularioEditar(false)}}></i>
                 </div>
             </div>
         </>

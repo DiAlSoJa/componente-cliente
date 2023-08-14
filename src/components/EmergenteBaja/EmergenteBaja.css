@@ -1,0 +1,25 @@
+.emergente__baja{
+    position: fixed;
+    z-index: 10000000000;
+    bottom: 2rem;
+    right: -100%;
+    height: 150px;
+    width: 400px;
+    background: var(--color-verde);
+    animation: aparicion 4s ease 1;
+    border-radius: .5rem;
+}
+@keyframes aparicion {
+    0%{
+     right: -100%;   
+    }
+    25%{
+        right: 1.7rem;
+    }
+    75%{
+        right: 1.7rem;
+    }
+    100%{
+        right:-100%;
+    }
+}

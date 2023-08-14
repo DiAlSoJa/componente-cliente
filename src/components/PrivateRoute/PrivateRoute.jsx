@@ -15,7 +15,6 @@ const PrivateRoute = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data);
                 if(data._id){
                     setIsAuthenticated(true);
                     setVerificar(true);

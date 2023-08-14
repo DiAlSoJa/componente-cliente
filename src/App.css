@@ -2,6 +2,9 @@
 :root{
   --header-height:60px;
   /* Colores principales */
+  --color-verde: #4CAF50; /* Un verde brillante */
+
+
   --color-resalte: #f95959;
   --color-letra: #233142;
   --color-background: #e3e3e3;

@@ -6,11 +6,13 @@ import { useState,useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import {useParams,Navigate} from "react-router-dom";
 import Codigo from "../../components/Codigo/Codigo";
+// import EmergenteBaja from "../../components/EmergenteBaja/EmergenteBaja";
 
 const Post = () => {
     const [loading,setLoading] =useState(true);
     const [existeComponente,setExisteComponente] = useState(false)
     const [componente,setComponente] = useState({});
+    // const [activado,setActivado]
     const {id} = useParams();
     
     useEffect(()=>{
@@ -33,6 +35,7 @@ const Post = () => {
     <>
         <Header></Header>
         <Nav/>
+        {/* {activado && <EmergenteBaja/>} */}
         {loading
         ?
             <Loader/>

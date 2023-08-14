@@ -2,13 +2,16 @@ import React, { useState, useEffect,useContext} from 'react';
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 import CrearComponente from '../CrearComponente/CrearComponente';
 import EliminarComponente from "../EliminarComponente/EliminarComponente";
+import EditComponente from '../EditComponente/EditComponente';
 
 const TableComponent = () => {
     const [componentes,setComponentes] = useState([]);
     const [eliminar,setEliminar] = useState(false);
     const [componeteEliminar,setCompoEliminar] = useState({});
+    const [componeteEditar,setCompoEditar] = useState({});
     const [categorias,setCategorias]=useState([]);
     const [crear,setCrear] = useState(false);
+    const [editar,setEditar] =useState(false);
 
     const {actualizar}= useContext(ContextoAdmin);
 
@@ -35,6 +38,7 @@ const TableComponent = () => {
         <>
         {(crear)? <CrearComponente categorias={categorias} setCrear={setCrear}/> : ""}
         {(eliminar)?  <EliminarComponente setEliminar={setEliminar} eliminar={componeteEliminar}/> : ""}
+        {(editar)?  <EditComponente setEditar={setEditar} componenteEditar={componeteEditar}/> : ""}
         <h2>Componentes</h2>
 
         <div className='btn-crear'>
@@ -53,12 +57,11 @@ const TableComponent = () => {
                 <tbody>
                 {
                 componentes.map((componente)=>{
-
                         return ( 
                             <tr key={componente._id}>
                                 <td>{componente._id}</td>
                                 <td className='img-container'><img src={componente.destination} alt={componente.titulo}/></td>
-                                <td className="editar"><i className="fas fa-edit"></i></td>
+                                <td className="editar"><i className="fas fa-edit" onClick={()=>{setEditar(true); setCompoEditar(componente)}}></i></td>
                                 <td className="eliminar"><i className="fas fa-trash" onClick={()=>{setEliminar(true); setCompoEliminar(componente)}}></i></td>
                             </tr>
                         );
