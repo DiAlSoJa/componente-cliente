@@ -3,10 +3,16 @@ import { NavLink } from "react-router-dom";
 
 import "./Aside.css";
 
-const Aside = () => {
+const Aside = ({setActualizar}) => {
     const [open,setOpen]=useState(false);
+
     const handleOpen=()=>{
         setOpen(prev=> !prev);
+    }
+    const cerrarSesion =()=>{
+        localStorage.removeItem("x-token");
+
+        setActualizar(prev=>!prev)
     }
     return ( 
         <aside className={`aside ${open? "open":""}`} >
@@ -26,7 +32,7 @@ const Aside = () => {
                     <i class="fas fa-times"></i>
                 }
             </div>
-            <button className="logout" >
+            <button className="logout" onClick={cerrarSesion}>
                 <i className="fa-regular fa-circle-left"></i> Salir sesion
             </button>
         </aside>
