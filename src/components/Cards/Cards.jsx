@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import foto1 from "../../assets/img/foto1.jpg";
 import "./Cards.css";
 
 
@@ -29,7 +28,7 @@ const Cards = () => {
 
             <a key={element._id} className="card" href={`/post/${element._id}`}>
                 <div className="component">
-                    <img src={foto1} alt={element.titulo}></img>
+                    <img src={element.destination} alt={element.titulo}></img>
                 </div>
                 <div className="card-content">
 

@@ -9,6 +9,7 @@ import TableComponent from "../components/TableComponent/TableComponent.jsx";
 import TableCategoria from "../components/TableCategoria/TableCategoria.jsx";
 
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute.jsx";
+
 const Router = () => {
 
     return ( 
@@ -17,11 +18,13 @@ const Router = () => {
 
             {/* privado */}
             <Route element={<PrivateRoute/>}>
+
                 <Route path="/ddd" element={<Admin/>}>
                     <Route path="componente" element={<TableComponent/>}></Route>
                     <Route path="admin" element={<TableAdmin/>}></Route>
                     <Route path="categoria" element={<TableCategoria/>}></Route>
                 </Route>
+
             </Route>
 
             <Route path="/login" element={<Login/>}></Route>
