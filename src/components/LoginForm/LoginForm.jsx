@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import "./LoginForm.css";
 
-const LoginForm = () => {
+const LoginForm = ({setActualizar}) => {
     const [correo,setCorreo]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError] = useState(null);
-    const [token,setToken] = useState(null);
 
     const onChangeCorreo=(e)=>{
         setCorreo(e.target.value);
@@ -36,6 +35,7 @@ const LoginForm = () => {
             if(datos.token){
                  localStorage.setItem("x-token",datos.token);
                  setError(null);
+                 setActualizar(prev=>!prev);
             }else{ 
                 setError(datos.mensage);
                 setCorreo("");
