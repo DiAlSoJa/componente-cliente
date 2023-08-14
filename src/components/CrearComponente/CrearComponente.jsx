@@ -28,9 +28,14 @@ const CrearComponente = ({categorias,setCrear}) => {
         let categoriasCheck=[];
         categoriasCheck = categoriasEnviar.substring(0,categoriasEnviar.length-1).split(",");
         const data = new FormData();
+        const codigo ={
+            html,style,script
+        }
+
         data.append("imagenxd",file);
         data.append("titulo",titulo);
         data.append("description",description);
+        data.append("codigo",JSON.stringify(codigo))
         categoriasCheck.forEach(cate=>{
             data.append("categorias",cate);
         });
