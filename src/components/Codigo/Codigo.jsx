@@ -1,6 +1,10 @@
 import "./Codigo.css";
 
 const Codigo = ({codigo,titulo}) => {
+    const copiarPortapapeles=()=>{
+
+        navigator.clipboard.writeText(codigo);
+    }
     return ( 
         <div className="code__container">
             <div className="code__titulo">
@@ -11,6 +15,7 @@ const Codigo = ({codigo,titulo}) => {
                     <code>{codigo}</code>
                 </pre>
             </div>
+            <i className="fa-regular fa-clipboard" onClick={copiarPortapapeles}></i>
         </div>
      );
 }

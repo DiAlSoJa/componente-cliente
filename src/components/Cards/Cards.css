@@ -9,6 +9,7 @@
     border-radius: 1rem;
     text-decoration: none;
     transition: transform .2s ease;
+    width: 100%;
 }
 .card:hover{
     transform: scale(1.01);
@@ -21,7 +22,7 @@
     text-align: center;
 }
 .card .component img{
-    height: 100%;
+    width: 100%;
 }
 
 .card .card-content{
