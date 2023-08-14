@@ -5,8 +5,8 @@ import { ContextoAdmin } from "../../contextos/ContextoAdmin";
 const EditComponente = ({setEditar,componenteEditar,categorias}) => {
 
     const [nuevoTitulo,setNuevoTitulo] = useState(componenteEditar.titulo);
-    const [nuevasCategorias,setNuevasCategorias] = useState(componenteEditar.categorias.map(categoria=>categoria.nombre));
-    let [nuevasCategoriasEnviar,setCategoriasEnviar]=useState(componenteEditar.categorias.map(categoria=>categoria._id));
+    // const [nuevasCategorias,setNuevasCategorias] = useState(componenteEditar.categorias.map(categoria=>categoria.nombre));
+    // let [nuevasCategoriasEnviar,setCategoriasEnviar]=useState(componenteEditar.categorias.map(categoria=>categoria._id));
     
     const {actualizar,setActualizar}= useContext(ContextoAdmin);
 
@@ -14,15 +14,16 @@ const EditComponente = ({setEditar,componenteEditar,categorias}) => {
 
     const editarCompon= (e,id="123")=>{
         e.preventDefault();
-        const categoriasCheck = nuevasCategoriasEnviar.substring(0,nuevasCategoriasEnviar.length-1).split(",");
+        // const categoriasCheck = nuevasCategoriasEnviar.substring(0,nuevasCategoriasEnviar.length-1).split(",");
         const data ={
-            titulo:nuevoTitulo,categorias:categoriasCheck
+            titulo:nuevoTitulo
         }
 
-        fetch(`http://localhost:8000/api/componente/${id}`,{
+        fetch(`http://localhost:8000/componente/${id}`,{
             method: "PUT",
             headers:{
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "x-token": localStorage.getItem("x-token")
             },
             body: JSON.stringify(data)
         }).then(res=> res.json()).then(datos=>setActualizar(!actualizar));
@@ -36,7 +37,7 @@ const EditComponente = ({setEditar,componenteEditar,categorias}) => {
         <>
             <div className="editar-form">
                 
-                <form onSubmit={(e)=>editarCompon(e,componenteEditar.id)}>
+                <form onSubmit={(e)=>editarCompon(e,componenteEditar._id)}>
                     <h3>Editar Componentes</h3>
                     <div className="form-thing">
                         <label>Titulo</label>
