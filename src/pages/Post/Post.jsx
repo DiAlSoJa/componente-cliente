@@ -5,6 +5,7 @@ import "./Post.css";
 import { useState,useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import {useParams,Navigate} from "react-router-dom";
+import Codigo from "../../components/Codigo/Codigo";
 
 const Post = () => {
     const [loading,setLoading] =useState(true);
@@ -39,24 +40,29 @@ const Post = () => {
             {
                 existeComponente
                 ?
-                <article className='article'>
-    
-                    <h2  className='title-article'>{componente.titulo}</h2>
-                    
-                    <div className='image-container'>
-                        <img src={componente.destination} alt="juan"></img>
-                    </div>
-                    <div className='description'>
-                        <p>{componente.description}</p>
-                    </div>
-                                    
-                    <div className='categorias'>
-                            {componente.categorias.map(cat=>{
-                                return(<span>{cat.nombre}</span>)
-                            })}
-                    </div>
-    
-                </article>
+                <>
+                    <article className='article'>
+        
+                        <h2  className='title-article'>{componente.titulo}</h2>
+                        
+                        <div className='image-container'>
+                            <img src={componente.destination} alt="juan"></img>
+                        </div>
+                        <div className='description'>
+                            <p>{componente.description}</p>
+                        </div>
+                                        
+                        <div className='categorias'>
+                                {componente.categorias.map(cat=>{
+                                    return(<span>{cat.nombre}</span>)
+                                })}
+                        </div>
+        
+                    </article>
+                    {componente.codigo.html? <Codigo titulo={"Html"} codigo={componente.codigo.html.replaceAll( "&lt;","<").replaceAll("&gt;",">")}/>: ""}
+                    {componente.codigo.style? <Codigo titulo={"Css"} codigo={componente.codigo.style}/>: ""}
+                    {componente.codigo.script? <Codigo titulo={"Script"} codigo={componente.codigo.script}/>: ""}
+                </>
                 :
                     <Navigate to="/notfound"/>
                 }
