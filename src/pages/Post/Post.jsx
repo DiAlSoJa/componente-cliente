@@ -1,11 +1,11 @@
 import Nav from "../../components/Nav/Nav";
 import Header from "../../components/Header/Header";
 import MasComponentes from "../../components/MasComponentes/MasComponentes";
-import "./Post.css";
 import { useState,useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import {useParams,Navigate} from "react-router-dom";
 import Codigo from "../../components/Codigo/Codigo";
+import "./Post.css";
 // import EmergenteBaja from "../../components/EmergenteBaja/EmergenteBaja";
 
 const Post = () => {

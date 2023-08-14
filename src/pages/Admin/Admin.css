@@ -103,7 +103,9 @@
 .editar-form form{
     position: absolute;
     width: 25rem;
-    height: 25rem;
+    min-height: 25rem;
+    overflow-y:scroll;
+    max-height: 80vh;
     background: var(--color-background);
     z-index: 10000000;
     top: 50%;
@@ -160,6 +162,98 @@
     color: var(--color-letra);
     cursor: pointer;
 }
+.editar-form form  .form-thing textarea{
+    resize: none;
+    width: 100%;
+    height: 8rem;
+    border: none;
+    background-color: var(--color-transparente);
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    color: var(--color-letra);
+}
+
+.editar-form form .codigos .codigos-navigation {
+    /* margin-left: 1rem; */
+    
+}
+.editar-form form .codigos .form-thing textarea{
+    display: none;
+    resize: none;
+    width: 100%;
+    height: 15rem;
+    border: none;
+    background-color: var(--color-background);
+    font-size: 1rem;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    color: var(--color-letra);
+    margin-top: 1rem;
+}
+.editar-form form .codigos .form-thing textarea.active{
+    display: inline;
+    
+}
+.editar-form form .codigos .codigos-navigation label{
+    padding: .5rem .5rem;
+    /* border-radius: 1rem; */
+    background-color: var(--color-background);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.editar-form form .codigos .codigos-navigation label:hover{
+    border-bottom: 1px solid var(--color-resalte);
+
+    
+}
+.editar-form form .codigos .codigos-navigation label.active{
+    border-bottom: 1px solid var(--color-resalte);
+    /* box-shadow: var(--box-shadow); */
+    color: var(--color-resalte);
+}
+
+
+
+ 
+.editar-form form .form-file:hover{
+    background-color: var(--rgba);
+    
+}
+.editar-form form .form-file{
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    background-color: var(--bg-black-900);
+    border: 5px dashed var(--text-black-700);
+    cursor: pointer;
+    margin: 1.3rem 0;
+    padding: 3rem 0;
+}
+.editar-form form .form-file::before{
+    content: "Inserta imagen";
+    position: absolute;
+    top: -2.5rem;
+    left: 0;
+    font-weight: bold;
+    color: var(--text-black-700);
+    font-size: 1.4rem;
+}
+ .editar-form form .form-file label{
+    display: block;
+    font-size: 1.4rem;
+    text-align: center;
+    /* font-weight: 800; */
+    cursor: pointer;
+    color: var(--skin-color1);
+}
+ .editar-form form .form-file input{
+    position: absolute;
+    display: inline-block;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+ } 
 
 @media (max-width:500px) {
     .dashboard-content .table{

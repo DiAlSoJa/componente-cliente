@@ -7,8 +7,10 @@ import Admin from "../pages/Admin/Admin.jsx";
 import TableAdmin from "../components/TableAdmin/TableAdmin.jsx";
 import TableComponent from "../components/TableComponent/TableComponent.jsx";
 import TableCategoria from "../components/TableCategoria/TableCategoria.jsx";
+import React from 'react';
 
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute.jsx";
+// import Categoria from "../pages/Categoria/Categoria.jsx";
 
 const Router = () => {
 
@@ -32,6 +34,20 @@ const Router = () => {
             {/* <Route path="/search" element={<h1>search</h1>}></Route> */}
 
             <Route path="/post/:id" element={<Post/>}></Route>
+            
+            {/* 
+            <Route path="/categoria" element={<Categoria/>}>
+                <Route index element={<Navigate to="/notfound"/>}/>
+                <Route path="javascript"/>
+                <Route path="css"/>
+                <Route path="html"/>
+                <Route path="template"/>
+                <Route path="python"/>
+                <Route path="reactjs"/>
+                <Route path="nodejs"/>
+
+            </Route> 
+            */}
 
             <Route path="/notfound" element={<NotFound/>}></Route>
             <Route path="*" element={<Navigate to="/notfound"/>}></Route>
