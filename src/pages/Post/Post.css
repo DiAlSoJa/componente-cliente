@@ -48,17 +48,21 @@
     flex-wrap: wrap;
     padding: 1rem;
 
+
 }
 .article .categorias span{
     background-color: var(--color-resalte);
     color: var(--color-letra);
     padding: .3rem 1rem;
-    margin: .5rem;
     border-radius: 1rem;
     font-weight: 800;
     font-size: 1.1rem;
     cursor: pointer;
     text-transform: uppercase;
+}
+.article .categorias a{
+    text-decoration: none;
+    margin: .5rem;
 }
 
 

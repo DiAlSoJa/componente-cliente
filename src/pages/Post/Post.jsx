@@ -57,7 +57,7 @@ const Post = () => {
                                         
                         <div className='categorias'>
                                 {componente.categorias.map(cat=>{
-                                    return(<span>{cat.nombre}</span>)
+                                    return(<a href={"/categoria/"+cat.nombre}><span>{cat.nombre}</span></a>)
                                 })}
                         </div>
         
