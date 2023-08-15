@@ -75,7 +75,14 @@
     
 
 }
-
+.error-text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    color: var(--color-resalte);
+    font-size: 2rem;
+}
 @media (max-width: 1000px) {
     .cards{
         grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -10,7 +10,8 @@ import TableCategoria from "../components/TableCategoria/TableCategoria.jsx";
 import React from 'react';
 
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute.jsx";
-// import Categoria from "../pages/Categoria/Categoria.jsx";
+import Categoria from "../pages/Categoria/Categoria.jsx";
+import CategoriaCards from "../components/CategoriaCards/CategoriaCards.jsx";
 
 const Router = () => {
 
@@ -35,19 +36,19 @@ const Router = () => {
 
             <Route path="/post/:id" element={<Post/>}></Route>
             
-            {/* 
+            
             <Route path="/categoria" element={<Categoria/>}>
                 <Route index element={<Navigate to="/notfound"/>}/>
-                <Route path="javascript"/>
-                <Route path="css"/>
-                <Route path="html"/>
-                <Route path="template"/>
-                <Route path="python"/>
-                <Route path="reactjs"/>
-                <Route path="nodejs"/>
+                <Route path="javascript" element={<CategoriaCards/>}/>
+                <Route path="css" element={<CategoriaCards/>}/>
+                <Route path="html" element={<CategoriaCards/>}/>
+                <Route path="template" element={<CategoriaCards/>}/>
+                <Route path="python" element={<CategoriaCards/>}/>
+                <Route path="reactjs" element={<CategoriaCards/>}/>
+                <Route path="nodejs" element={<CategoriaCards/>}/>
 
             </Route> 
-            */}
+           
 
             <Route path="/notfound" element={<NotFound/>}></Route>
             <Route path="*" element={<Navigate to="/notfound"/>}></Route>
