@@ -1,8 +1,28 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import Loader from "../Loader/Loader";
 import "../Cards/Cards.css";
-const CategoriaCards = () => {
+const CategoriaCards = ({categoria}) => {
     const [data,setData] = useState([]);
+
+
+    useEffect(()=>{
+        const url="http://localhost:8000/componente/c/"+categoria.toUpperCase();
+        
+        fetch(url,{
+            headers:{
+                "x-token":localStorage.getItem("x-token")
+            }
+        })
+        .then(res=>res.json())
+        .then(async datos=>{
+            if(datos.componentes){
+                await setData(datos.componentes)
+            }else{
+
+            }
+        })
+        .catch(e=>console.log(e))
+    },[categoria]);
 
 
     const devolverTexto = (text) =>{
@@ -45,7 +65,7 @@ const CategoriaCards = () => {
         );
 
     }else{
-        return(<h2 className='error-text'>Hubo un error, intentelo mas tarde</h2>)
+        return(<Loader/>)
     }
 
 }

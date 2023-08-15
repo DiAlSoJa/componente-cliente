@@ -39,13 +39,13 @@ const Router = () => {
             
             <Route path="/categoria" element={<Categoria/>}>
                 <Route index element={<Navigate to="/notfound"/>}/>
-                <Route path="javascript" element={<CategoriaCards/>}/>
-                <Route path="css" element={<CategoriaCards/>}/>
-                <Route path="html" element={<CategoriaCards/>}/>
-                <Route path="template" element={<CategoriaCards/>}/>
-                <Route path="python" element={<CategoriaCards/>}/>
-                <Route path="reactjs" element={<CategoriaCards/>}/>
-                <Route path="nodejs" element={<CategoriaCards/>}/>
+                <Route path="javascript" element={<CategoriaCards categoria="javascript"/>}/>
+                <Route path="css" element={<CategoriaCards categoria="css"/> }/>
+                <Route path="html" element={<CategoriaCards categoria="html"/>}/>
+                <Route path="template" element={<CategoriaCards categoria="template"/>}/>
+                <Route path="python" element={<CategoriaCards categoria="python"/>}/>
+                <Route path="reactjs" element={<CategoriaCards categoria="reactjs"/>}/>
+                <Route path="nodejs" element={<CategoriaCards categoria="nodejs"/>}/>
 
             </Route> 
            
