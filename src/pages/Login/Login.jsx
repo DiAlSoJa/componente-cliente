@@ -8,6 +8,7 @@ const Login = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading,setLoading] = useState(true);
     const [actualizar,setActualizar] = useState(false);
+    
     useEffect(()=>{
         const token = localStorage.getItem("x-token");
         if(token){
