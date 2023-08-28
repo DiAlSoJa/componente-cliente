@@ -1,12 +1,12 @@
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
 import Cards from "../../components/Cards/Cards";
-const Home = () => {
+const Home = ({url}) => {
     return ( 
         <>
             <Header></Header>
             <Nav/>
-            <Cards/>
+            <Cards url={url}/>
         </>
      );
 }

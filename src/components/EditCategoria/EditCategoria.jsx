@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 
 
-const EditCategoria = ({setEditar,categoria}) => {
+const EditCategoria = ({setEditar,categoria,url}) => {
     const [nuevoNombre,setNuevoNombre] = useState(categoria.nombre);
 
     const nuevoNombreOnChange= (e)=>setNuevoNombre(e.target.value);
@@ -11,7 +11,7 @@ const EditCategoria = ({setEditar,categoria}) => {
 
     const editarNombre= (e,id="123")=>{
         e.preventDefault();
-        fetch(`http://localhost:8000/categoria/${id}`,{
+        fetch(`${url}categoria/${id}`,{
             method: "PUT",
             headers:{
                 "Content-Type": "application/json",

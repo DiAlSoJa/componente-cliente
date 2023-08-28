@@ -14,23 +14,24 @@ import Categoria from "../pages/Categoria/Categoria.jsx";
 import CategoriaCards from "../components/CategoriaCards/CategoriaCards.jsx";
 
 const Router = () => {
+    const url="http://localhost:8000/";
 
     return ( 
         <Routes>
-            <Route element={<Home/>} path="/"></Route>
+            <Route element={<Home url={url}/>} path="/"></Route>
 
             {/* privado */}
-            <Route element={<PrivateRoute/>}>
+            <Route element={<PrivateRoute url={url}/>}>
 
-                <Route path="/ddd" element={<Admin/>}>
-                    <Route path="componente" element={<TableComponent/>}></Route>
-                    <Route path="admin" element={<TableAdmin/>}></Route>
-                    <Route path="categoria" element={<TableCategoria/>}></Route>
+                <Route path="/ddd" element={<Admin url={url}/>}>
+                    <Route path="componente" element={<TableComponent url={url}/>}></Route>
+                    <Route path="admin" element={<TableAdmin url={url}/>}></Route>
+                    <Route path="categoria" element={<TableCategoria url={url}/>}></Route>
                 </Route>
 
             </Route>
 
-            <Route path="/login" element={<Login/>}></Route>
+            <Route path="/login" element={<Login url={url}/>}></Route>
 
             {/* <Route path="/search" element={<h1>search</h1>}></Route> */}
 
@@ -39,13 +40,13 @@ const Router = () => {
             
             <Route path="/categoria" element={<Categoria/>}>
                 <Route index element={<Navigate to="/notfound"/>}/>
-                <Route path="javascript" element={<CategoriaCards categoria="javascript"/>}/>
-                <Route path="css" element={<CategoriaCards categoria="css"/> }/>
-                <Route path="html" element={<CategoriaCards categoria="html"/>}/>
-                <Route path="template" element={<CategoriaCards categoria="template"/>}/>
-                <Route path="python" element={<CategoriaCards categoria="python"/>}/>
-                <Route path="reactjs" element={<CategoriaCards categoria="reactjs"/>}/>
-                <Route path="nodejs" element={<CategoriaCards categoria="nodejs"/>}/>
+                <Route path="javascript" element={<CategoriaCards url={url} categoria="javascript" />}/>
+                <Route path="css" element={<CategoriaCards url={url} categoria="css"/> }/>
+                <Route path="html" element={<CategoriaCards url={url} categoria="html"/>}/>
+                <Route path="template" element={<CategoriaCards url={url} categoria="template"/>}/>
+                <Route path="python" element={<CategoriaCards url={url} categoria="python"/>}/>
+                <Route path="reactjs" element={<CategoriaCards url={url} categoria="reactjs"/>}/>
+                <Route path="nodejs" element={<CategoriaCards url={url} categoria="nodejs"/>}/>
 
             </Route> 
            

@@ -4,7 +4,7 @@ import CrearCategoria from "../CrearCategoria/CrearCategoria";
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 import EditCategoria from '../EditCategoria/EditCategoria';
 
-const TableCategoria = () => {
+const TableCategoria = ({url}) => {
     const [categorias,setCategorias] = useState([]);
     const [categoriaEliminar,setCategoriaEliminar]= useState({});
     const [eliminar,setEliminar] = useState(false);
@@ -14,7 +14,7 @@ const TableCategoria = () => {
     const {actualizar}= useContext(ContextoAdmin);
     
     useEffect(()=>{
-        fetch("http://localhost:8000/categoria",{
+        fetch(url + "categoria",{
             headers:{
                 "x-token":localStorage.getItem("x-token")
             }
@@ -25,13 +25,13 @@ const TableCategoria = () => {
 
         })
         .catch(error=> console.log(error));
-    },[actualizar]);
+    },[actualizar, url]);
 
     return ( 
         <>
-        {(crear)? <CrearCategoria setCrear={setCrear}/> : ""}
-        {(editar)? <EditCategoria setEditar={setEditar} categoria={categoriaEditar}/> : ""}
-        {(eliminar)?  <EliminarCategoria setEliminar={setEliminar} eliminar={categoriaEliminar} /> : ""}
+        {(crear)? <CrearCategoria setCrear={setCrear} url={url}/> : ""}
+        {(editar)? <EditCategoria setEditar={setEditar} categoria={categoriaEditar} url={url}/> : ""}
+        {(eliminar)?  <EliminarCategoria setEliminar={setEliminar} eliminar={categoriaEliminar} url={url}/> : ""}
         <h2>Categorias</h2>
             <div className='btn-crear'>
                 <button onClick={()=>setCrear(true)}>Crear +</button>

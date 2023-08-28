@@ -1,6 +1,6 @@
 import React, { useState ,useContext} from 'react';
 import {ContextoAdmin} from "../../contextos/ContextoAdmin";
-const CrearAdmin = ({setCrear}) =>{
+const CrearAdmin = ({setCrear,url}) =>{
     const [userName,setUserName] = useState("");
     const [correo,setCorreo] = useState("");
     const [password,setPassword] = useState("");
@@ -14,7 +14,7 @@ const CrearAdmin = ({setCrear}) =>{
     const crearAdmin = (e) =>{
         e.preventDefault();
 
-        fetch("http://localhost:8000/admin/crearadmin",{
+        fetch(url+"admin/crearadmin",{
             method: "POST",
             headers:{
                 "Content-Type": "application/json",

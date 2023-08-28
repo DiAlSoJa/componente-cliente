@@ -1,10 +1,10 @@
 import Cards from "../Cards/Cards";
 import "./MasComponentes.css";
-const MasComponentes = () => {
+const MasComponentes = ({url}) => {
     return ( 
         <div className="mas-componentes">
             <h2>Mas de tuFrontend</h2>
-            <Cards/>
+            <Cards url={url}/>
         </div>
      );
 }

@@ -2,7 +2,7 @@ import { useState,useContext } from "react";
 import { ContextoAdmin } from "../../contextos/ContextoAdmin";
 
 
-const EditComponente = ({setEditar,componenteEditar,categorias}) => {
+const EditComponente = ({setEditar,componenteEditar,categorias,url}) => {
 
     const [nuevoTitulo,setNuevoTitulo] = useState(componenteEditar.titulo);
     const [nuevaDescripcion,setNuevaDescripcion] = useState(componenteEditar.description);
@@ -39,7 +39,7 @@ const EditComponente = ({setEditar,componenteEditar,categorias}) => {
 
         
 
-        fetch(`http://localhost:8000/componente/${id}`,{
+        fetch(`${url}componente/${id}`,{
             method: "PUT",
             headers:{
                 "Content-Type": "application/json",

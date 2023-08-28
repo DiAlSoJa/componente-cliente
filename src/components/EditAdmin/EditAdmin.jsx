@@ -2,7 +2,7 @@ import React, { useState,useContext} from 'react';
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 
 
-const EditAdmin = ({setEditar,admin}) => {
+const EditAdmin = ({setEditar,admin,url}) => {
     const [nuevoUserName,setNuevoUserName] = useState(admin.username);
     const [nuevoCorreo,setNuevoCorreo] = useState(admin.correo);
 
@@ -12,7 +12,7 @@ const EditAdmin = ({setEditar,admin}) => {
     const {setActualizar} = useContext(ContextoAdmin);
     const editarUserName= (e,id="123")=>{
         e.preventDefault();
-        fetch(`http://localhost:8000/admin/${id}`,{
+        fetch(`${url}admin/${id}`,{
             method: "PUT",
             headers:{
                 "Content-Type": "application/json",

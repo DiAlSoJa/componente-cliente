@@ -4,7 +4,7 @@ import Loader from "../../components/Loader/Loader";
 import React, { useState, useEffect } from 'react';
 import { Navigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({url}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading,setLoading] = useState(true);
     const [actualizar,setActualizar] = useState(false);
@@ -12,7 +12,7 @@ const Login = () => {
     useEffect(()=>{
         const token = localStorage.getItem("x-token");
         if(token){
-            fetch("http://localhost:8000/admin/me",{
+            fetch(url+"admin/me",{
                 headers:{
                     "Content-Type": "application/json",
                     "x-token": token
@@ -35,7 +35,7 @@ const Login = () => {
             setIsAuthenticated(false);
             setLoading(false);
         }
-    },[actualizar]);
+    },[actualizar,url]);
 
     return ( 
         <>
@@ -48,7 +48,7 @@ const Login = () => {
                 ?
                     <Navigate to="/ddd"/>
                 :
-                    <LoginForm setActualizar={setActualizar}></LoginForm>
+                    <LoginForm setActualizar={setActualizar} url={url}></LoginForm>
                 }
             </>
             }

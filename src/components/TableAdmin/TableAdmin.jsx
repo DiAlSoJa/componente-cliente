@@ -5,7 +5,7 @@ import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 
 import "../../styles/EliminarEditar.css";
 import EditAdmin from '../EditAdmin/EditAdmin';
-const TableAdmin = () => {
+const TableAdmin = ({url}) => {
     const [admins,setAdmins]= useState([]);
     const [eliminar,setEliminar] = useState(false);
     const [crear,setCrear] = useState(false);
@@ -15,7 +15,7 @@ const TableAdmin = () => {
 
     const {actualizar}= useContext(ContextoAdmin);
     useEffect(()=>{
-        fetch("http://localhost:8000/admin",{
+        fetch(url +"admin",{
             headers:{
                 "x-token":localStorage.getItem("x-token")
             }
@@ -26,12 +26,12 @@ const TableAdmin = () => {
 
         })
         .catch(error=> console.log(error));
-    },[actualizar]);
+    },[actualizar,url]);
     return (  
         <>
-        {(eliminar)?  <EliminarAdmin setEliminar={setEliminar} eliminar={adminEliminar} /> : ""}
-        {(crear)?  <CrearAdmin setCrear={setCrear}/> : ""}
-        {(editar)? <EditAdmin admin={adminEditar} setEditar={setEditar}/>:""}
+        {(eliminar)?  <EliminarAdmin setEliminar={setEliminar} eliminar={adminEliminar} url={url}/> : ""}
+        {(crear)?  <CrearAdmin setCrear={setCrear} url={url}/> : ""}
+        {(editar)? <EditAdmin admin={adminEditar} setEditar={setEditar} url={url}/>:""}
         <h2>Admin</h2>
             <div className='btn-crear'>
                 <button onClick={()=>setCrear(true)}>Crear +</button>

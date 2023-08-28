@@ -8,7 +8,7 @@ import Codigo from "../../components/Codigo/Codigo";
 import "./Post.css";
 // import EmergenteBaja from "../../components/EmergenteBaja/EmergenteBaja";
 
-const Post = () => {
+const Post = ({url}) => {
     const [loading,setLoading] =useState(true);
     const [existeComponente,setExisteComponente] = useState(false)
     const [componente,setComponente] = useState({});
@@ -16,8 +16,8 @@ const Post = () => {
     const {id} = useParams();
     
     useEffect(()=>{
-        const url = "http://localhost:8000/componente/"+id;
-        fetch(url)
+        
+        fetch(url+id)
         .then(res=>res.json())
         .then(data=>{
             if(data._id){
@@ -30,7 +30,7 @@ const Post = () => {
                 setLoading(false);
             }
         })
-    },[id])
+    },[id,url])
     return ( 
     <>
         <Header></Header>
@@ -72,7 +72,7 @@ const Post = () => {
             </>
         }
 
-        <MasComponentes/>
+        <MasComponentes url={url}/>
         
     </>
             

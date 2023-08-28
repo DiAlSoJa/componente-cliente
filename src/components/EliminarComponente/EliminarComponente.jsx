@@ -2,12 +2,12 @@ import { useContext } from "react";
 import {ContextoAdmin} from "../../contextos/ContextoAdmin";
 
 
-const EliminarComponente=({eliminar="algo",setEliminar})=>{
+const EliminarComponente=({eliminar="algo",setEliminar,url})=>{
     const {actualizar,setActualizar}= useContext(ContextoAdmin);
 
     const eliminarAlgo=(e)=>{
         e.preventDefault();
-        fetch(`http://localhost:8000/componente/${eliminar._id}`,{
+        fetch(`${url}componente/${eliminar._id}`,{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json",

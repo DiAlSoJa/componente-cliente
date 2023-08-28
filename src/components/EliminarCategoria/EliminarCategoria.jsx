@@ -6,7 +6,7 @@ const EliminarCategoria=({eliminar="algo",setEliminar,url})=>{
 
     const eliminarAlgo=(e)=>{
         e.preventDefault();
-        fetch(`http://localhost:8000/categoria/${eliminar.id}`,{
+        fetch(`${url}categoria/${eliminar.id}`,{
             method: "DELETE",
             headers:{
                 "Content-Type": "application/json",

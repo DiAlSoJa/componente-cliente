@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Loader from "../Loader/Loader";
 import "../Cards/Cards.css";
-const CategoriaCards = ({categoria}) => {
+const CategoriaCards = ({categoria,url}) => {
     const [data,setData] = useState([]);
 
 
     useEffect(()=>{
-        const url="http://localhost:8000/componente/c/"+categoria.toUpperCase();
+
         
-        fetch(url,{
+        fetch(url+"componente/c/"+categoria.toUpperCase(),{
             headers:{
                 "x-token":localStorage.getItem("x-token")
             }
@@ -22,7 +22,7 @@ const CategoriaCards = ({categoria}) => {
             }
         })
         .catch(e=>console.log(e))
-    },[categoria]);
+    },[categoria,url]);
 
 
     const devolverTexto = (text) =>{

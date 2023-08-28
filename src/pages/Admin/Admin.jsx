@@ -6,7 +6,7 @@ import "./Admin.css";
 import Laoder from "../../components/Loader/Loader";
 import React, { useState ,useEffect} from 'react';
 
-const Admin = () => {
+const Admin = ({url}) => {
     document.title="Solo para Admins"; 
 
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,7 +17,7 @@ const Admin = () => {
     useEffect(()=>{
         const token = localStorage.getItem("x-token");
         if(token){
-            fetch("http://localhost:8000/admin/me",{
+            fetch(url+"admin/me",{
                 headers:{
                     "Content-Type": "application/json",
                     "x-token": token
@@ -40,7 +40,7 @@ const Admin = () => {
             setIsAuthenticated(false);
             setLoading(false);
         }
-    },[actualizar]);
+    },[actualizar,url]);
 
     return ( 
         <ProvedorAdmin>
@@ -64,7 +64,6 @@ const Admin = () => {
             </>
             }
 
-            }
         </ProvedorAdmin>
     );
 }

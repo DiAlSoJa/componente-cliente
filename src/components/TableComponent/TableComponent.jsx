@@ -4,7 +4,7 @@ import CrearComponente from '../CrearComponente/CrearComponente';
 import EliminarComponente from "../EliminarComponente/EliminarComponente";
 import EditComponente from '../EditComponente/EditComponente';
 
-const TableComponent = () => {
+const TableComponent = ({url}) => {
     const [componentes,setComponentes] = useState([]);
     const [eliminar,setEliminar] = useState(false);
     const [componeteEliminar,setCompoEliminar] = useState({});
@@ -16,7 +16,7 @@ const TableComponent = () => {
     const {actualizar}= useContext(ContextoAdmin);
 
     useEffect(()=>{
-        fetch("http://localhost:8000/componente",{
+        fetch(url +"componente",{
             headers:{
                 "x-token":localStorage.getItem("x-token"),
             }
@@ -28,17 +28,19 @@ const TableComponent = () => {
         })
         .catch(error=> console.log(error));
 
-        fetch(`http://localhost:8000/categoria`).then(res=> res.json()).then(data=>{
+        fetch(url +`categoria`).then(res=> res.json()).then(data=>{
             setCategorias(data.categorias);
             // setLoader(false);
             // console.log(data);
         }).catch(e=>console.log(e));
-    },[actualizar]);
+    },[actualizar,url]);
+
+    
     return ( 
         <>
-        {(crear)? <CrearComponente categorias={categorias} setCrear={setCrear}/> : ""}
-        {(eliminar)?  <EliminarComponente setEliminar={setEliminar} eliminar={componeteEliminar}/> : ""}
-        {(editar)?  <EditComponente setEditar={setEditar} componenteEditar={componeteEditar}/> : ""}
+        {(crear)? <CrearComponente categorias={categorias} setCrear={setCrear} url={url}/> : ""}
+        {(eliminar)?  <EliminarComponente setEliminar={setEliminar} eliminar={componeteEliminar} url={url}/> : ""}
+        {(editar)?  <EditComponente setEditar={setEditar} componenteEditar={componeteEditar} url={url}/> : ""}
         <h2>Componentes</h2>
 
         <div className='btn-crear'>

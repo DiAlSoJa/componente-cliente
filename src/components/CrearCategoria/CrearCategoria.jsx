@@ -2,7 +2,7 @@ import React, { useState, useContext} from 'react';
 
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 
-const CrearCategoria = ({setCrear})=>{
+const CrearCategoria = ({setCrear,url})=>{
     const [nombre,setNombre] = useState("");
 
     const nombreOnchange = (e) => setNombre(e.target.value);
@@ -13,7 +13,7 @@ const CrearCategoria = ({setCrear})=>{
     const crearCategoria = (e) =>{
         e.preventDefault();
 
-        fetch("http://localhost:8000/categoria",{
+        fetch(url+"categoria",{
             method: "POST",
             headers:{
                 "Content-Type": "application/json",

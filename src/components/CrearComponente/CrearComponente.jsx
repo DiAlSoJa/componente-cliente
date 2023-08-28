@@ -1,7 +1,7 @@
 import React, { useState, useContext} from 'react';
 import { ContextoAdmin } from '../../contextos/ContextoAdmin';
 
-const CrearComponente = ({categorias,setCrear}) => {
+const CrearComponente = ({categorias,setCrear,url}) => {
     const [titulo,setTitulo]= useState("");
     let [categoriasEnviar,setCategoriasEnviar]=useState("");
     let [categoriasEscribir,setCategoriasEscribir]=useState("");
@@ -40,7 +40,7 @@ const CrearComponente = ({categorias,setCrear}) => {
             data.append("categorias",cate);
         });
 
-        fetch(`http://localhost:8000/componente`,{
+        fetch(`${url}componente`,{
             method: "POST",
             body:data,
             headers:{

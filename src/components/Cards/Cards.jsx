@@ -2,17 +2,19 @@ import { useEffect, useState } from "react";
 import "./Cards.css";
 
 
-const Cards = () => {
+const Cards = ({url}) => {
   const [data,setData]=useState([]);
+
   useEffect(()=>{
     const traerComponentes=()=>{
-      fetch("http://localhost:8000/componente/")
+      fetch(url + "componente/")
       .then(res=>res.json())
       .then(componentes=>setData(componentes.componentes))
       .catch(e=> console.log(e));
     }
     traerComponentes();
-  },[]);
+  },[url]);
+  
     const devolverTexto = (text) =>{
         if(text.length>=50){
             let texto=text.slice(0,50);

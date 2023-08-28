@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./LoginForm.css";
 
-const LoginForm = ({setActualizar}) => {
+const LoginForm = ({setActualizar,url}) => {
     const [correo,setCorreo]=useState("");
     const [password,setPassword]=useState("");
     const [error,setError] = useState(null);
@@ -22,7 +22,7 @@ const LoginForm = ({setActualizar}) => {
         };
 
 
-        fetch("http://localhost:8000/admin/iniciarsesion",{
+        fetch(url+"admin/iniciarsesion",{
             method:"POST",
             body: JSON.stringify(data),
             headers: {
