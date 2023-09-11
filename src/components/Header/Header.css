@@ -62,6 +62,7 @@
 }
 
 /* Boton toggle end */
+
 .header .header__logo a{
     color: var(--color-letra);
     text-decoration: none;
@@ -76,56 +77,72 @@
 
 
 
-/* Search */
 
+.header ul{
+    display: flex;
+    gap: 1rem;
+    transition: left .3s ease;
+}
+.header ul li{
+    list-style: none;
+    padding: .5rem .8rem;
+    border-radius: 10px;
+    transition: background-color .3s ease;
+}
+.header ul li:hover{
+    background-color: var(--color-resalte);
+    
+}
+.header ul li:hover a{
+   color: #fff;
+    
+}
+.header ul li a{
+    text-decoration: none;
+    color: var(--color-letra);
+    font-weight: bold;
+    transition: color .3s ease;
+}
 
-.header .search .search-box{
-    position: relative;
+.bars{
+    display: none;
 }
-.header .search .search-box input{
-    font-size: 1.2rem;
-    width: 500px;
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    border: none;
-    background-color: var(--text-black-900);
-    color: var(--bg-black-900);
-    font-family: "Roboto",sans-serif;
-    font-weight: 500;
-}
-.header .search .search-box input::placeholder{
-    
-    color: var(--bg-black-100);
-    font-family: "Roboto",sans-serif;
-    font-weight: 500;
-}
-.header .search .search-box input::selection{
-    
-    border: 1px solid var(--skin-color1);
-}
-.header .search .search-box .boton-submit{
-    position: absolute;
-    right: 1rem;
-    top:50%;
-    transform: translateY(-50%);
-    color: var(--bg-black-900);
-    font-size: 1.3rem;
-    background: none;
-    border: none;
+.bars i{
+    font-size: 2rem;
+    color: var(--color-letra);
     cursor: pointer;
+   
 }
-
-/* Search end */
-
 
 @media (max-width: 500px) {
     .header{
 
-        padding:0 15px 0 15px;
+        padding: 15px;
+
+    }
+    .header .header__logo{
+        flex: 1;
 
     }
     .header .header__logo a{
 
         font-size: 1.2rem;
+    }
+    .bars{
+        display: block;
+        margin: 0 .5rem 0 1rem;
+    }
+    .header ul{
+       flex-direction: column;
+       position: absolute;
+       top: 80px;
+       left: -100%;
+       padding: 1rem 2rem;
+       width: 100%;
+       height: calc(100vh - 80px);
+       background-color: rgba(0,0,0,.2);
+    }
+    .header ul.active{
+      left: 0;
     }
 }
