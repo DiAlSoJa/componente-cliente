@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Header.css";
 
-const Header = () => {
+const Header = ({visible=true}) => {
     // const [search,setSearch] =useState("");
     
     
@@ -45,19 +45,24 @@ const Header = () => {
                     </form>
                     
                 </div> */}
-                <ul id="nav" className=''>
-                    <li><a href='/'>Generadores</a></li>
-                    <li><a href='/'>Categorias</a></li>
-                </ul>
+                {visible&& 
+                    <ul id="nav" className=''>
+                        <li><a href='/generador'>Generadores</a></li>
+                        <li><a href='/'>Categorias</a></li>
+                    </ul>
+                }
                 <div className="toggle" >
                     <button  className="toggle-button active" onClick={toggle}>
                         <span><i className="fa-solid fa-sun"></i></span> 
                         <span><i className="fa-solid fa-moon"></i></span> 
                     </button>
                 </div>
-                <div className='bars'>
-                    <i className="fa-solid fa-bars" onClick={navToggle}></i>
-                </div>
+                {visible&& 
+
+                    <div className='bars'>
+                        <i className="fa-solid fa-bars" onClick={navToggle}></i>
+                    </div>
+                }
                 
         </div>
      );

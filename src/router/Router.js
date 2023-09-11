@@ -4,6 +4,7 @@ import Post from "../pages/Post/Post.jsx";
 import NotFound from "../pages/NotFound/NotFound.jsx";
 import Login from "../pages/Login/Login.jsx";
 import Admin from "../pages/Admin/Admin.jsx";
+import Generador from "../pages/Generador/Generador.jsx";
 import TableAdmin from "../components/TableAdmin/TableAdmin.jsx";
 import TableComponent from "../components/TableComponent/TableComponent.jsx";
 import TableCategoria from "../components/TableCategoria/TableCategoria.jsx";
@@ -47,6 +48,13 @@ const Router = () => {
                 <Route path="python" element={<CategoriaCards url={url} categoria="python"/>}/>
                 <Route path="reactjs" element={<CategoriaCards url={url} categoria="reactjs"/>}/>
                 <Route path="nodejs" element={<CategoriaCards url={url} categoria="nodejs"/>}/>
+
+            </Route> 
+
+            <Route path="/generador" element={<Generador/>}>
+                <Route index element={<Navigate to="/notfound"/>}/>
+                <Route path="javascript" element={<CategoriaCards url={url} categoria="javascript" />}/>
+               
 
             </Route> 
            
