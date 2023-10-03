@@ -17,15 +17,17 @@ const Transform = () => {
         console.log(styles)
     }
     return ( 
-        <div>
-            <RangeSlider title={"rotate"} value={sliders.rotate} onChange={e=>slidersOnChange(e,"rotate")} max={360} />
-            <RangeSlider title={"scale"} value={sliders.scale} onChange={e=>slidersOnChange(e,"scale")}  min={0} max={2} step={.1}/>
-            <RangeSlider title={"skew"} value={sliders.skew} onChange={e=>slidersOnChange(e,"skew")}   min={-180} max={180} />
-            <RangeSlider title={"translate x"} value={sliders.translate_x} onChange={e=>slidersOnChange(e,"translate_x")}/>
-            <RangeSlider title={"translate y"} value={sliders.translate_y} onChange={e=>slidersOnChange(e,"translate_y")}/>
+        <>
+            <div className="settings">
+                <RangeSlider title={"rotate"} value={sliders.rotate} onChange={e=>slidersOnChange(e,"rotate")} max={360} />
+                <RangeSlider title={"scale"} value={sliders.scale} onChange={e=>slidersOnChange(e,"scale")}  min={0} max={2} step={.1}/>
+                <RangeSlider title={"skew"} value={sliders.skew} onChange={e=>slidersOnChange(e,"skew")}   min={-180} max={180} />
+                <RangeSlider title={"translate x"} value={sliders.translate_x} onChange={e=>slidersOnChange(e,"translate_x")}/>
+                <RangeSlider title={"translate y"} value={sliders.translate_y} onChange={e=>slidersOnChange(e,"translate_y")}/>
+            </div>
 
             <ResultComponent styles={styles.transform?styles:{}}/> 
-        </div>
+        </>
      );
 }
  

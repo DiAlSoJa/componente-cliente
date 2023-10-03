@@ -44,9 +44,15 @@ body{
   overflow: hidden;
   top: var(--header-height);
   padding: 2rem;
-  max-width: 1300px;
+  /* max-width: 1300px; */
 }
-
+a{
+  text-decoration: none;
+  
+}
+li{
+  list-style: none;
+}
 @media (max-width: 700px) {
   .container{
 

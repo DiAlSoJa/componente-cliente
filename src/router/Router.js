@@ -13,6 +13,12 @@ import React from 'react';
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute.jsx";
 import Categoria from "../pages/Categoria/Categoria.jsx";
 import CategoriaCards from "../components/CategoriaCards/CategoriaCards.jsx";
+import BorderRadius from "../components/Border-radius/BorderRadius.jsx";
+import BoxShadow from "../components/Box-shadow/BoxShadow.jsx";
+import Filter from "../components/Filter/Filter.jsx";
+import Glassmorphism from "../components/Glassmorphism/Glassmorphism.jsx";
+import Neumorphism from "../components/Neumorphism/Neomorphism.jsx";
+import Transform from "../components/Transform/Transform.jsx";
 
 const Router = () => {
     const url="http://localhost:8000/";
@@ -36,7 +42,7 @@ const Router = () => {
 
             {/* <Route path="/search" element={<h1>search</h1>}></Route> */}
 
-            <Route path="/post/:id" element={<Post/>}></Route>
+            <Route path="/post/:id" element={<Post url={url}/>}></Route>
             
             
             <Route path="/categoria" element={<Categoria/>}>
@@ -52,8 +58,13 @@ const Router = () => {
             </Route> 
 
             <Route path="/generador" element={<Generador/>}>
-                <Route index element={<Navigate to="/notfound"/>}/>
-                <Route path="javascript" element={<CategoriaCards url={url} categoria="javascript" />}/>
+                {/* <Route index element={<Navigate to="/notfound"/>}/> */}
+                <Route path="border-radius" element={<BorderRadius/>}/>
+                <Route path="box-shadow" element={<BoxShadow/>}/>
+                <Route path="filter" element={<Filter/>}/>
+                <Route path="glassmorphism" element={<Glassmorphism/>}/>
+                <Route path="neumorphism" element={<Neumorphism/>}/>
+                <Route path="transform" element={<Transform/>}/>
                
 
             </Route> 

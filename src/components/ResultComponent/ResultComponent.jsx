@@ -5,8 +5,10 @@ const ResultComponent = ({styles}) => {
             <div className="result__title">
                 <h3>Preview</h3>
             </div>
-            <div className="result__box" style={styles}>
-                
+            <div className="result__box">
+                <div className="result__thing" style={styles}>
+                    
+                </div>
             </div>
         </div>
      );

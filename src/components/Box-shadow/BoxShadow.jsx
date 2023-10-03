@@ -18,14 +18,16 @@ const BoxShadow = () => {
     }
     return ( 
 
-        <div>
-            <RangeSlider title={"Horizontal Shadow"} value={sliders.horizontal} onChange={e=>slidersOnChange(e,"horizontal")}/>
-            <RangeSlider title={"Vertical Shadow"}  value={sliders.vertical} onChange={e=>slidersOnChange(e,"vertical")}/>
-            <RangeSlider title={"blur"}  value={sliders.blur} onChange={e=>slidersOnChange(e,"blur")}/>
-            <RangeSlider title={"Spread Radius"}  value={sliders.spread} onChange={e=>slidersOnChange(e,"spread")} min={-200} step={2}/>
-            <RangeSlider title={"Oapcity"} value={sliders.opacity} onChange={e=>slidersOnChange(e,"opacity")} min={0} max={1} step={.01}/>
+        <>
+            <div className="settings">
+                <RangeSlider title={"Horizontal Shadow"} value={sliders.horizontal} onChange={e=>slidersOnChange(e,"horizontal")}/>
+                <RangeSlider title={"Vertical Shadow"}  value={sliders.vertical} onChange={e=>slidersOnChange(e,"vertical")}/>
+                <RangeSlider title={"blur"}  value={sliders.blur} onChange={e=>slidersOnChange(e,"blur")}/>
+                <RangeSlider title={"Spread Radius"}  value={sliders.spread} onChange={e=>slidersOnChange(e,"spread")} min={-200} step={2}/>
+                <RangeSlider title={"Oapcity"} value={sliders.opacity} onChange={e=>slidersOnChange(e,"opacity")} min={0} max={1} step={.01}/>
+            </div>
             <ResultComponent styles={styles}/>
-        </div>
+        </>
      );
 }
  

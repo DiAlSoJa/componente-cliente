@@ -6,8 +6,8 @@ const Glassmorphism = () => {
     const [styles, setStyles] = useState({
         background: "rgba(120, 120, 120, 0.25)",
         boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-        backdropFilter: "blur(4px)",
-        WebkitBackdropFilter: "blur(4px)",
+        // backdropFilter: "blur(4px)",
+        // WebkitBackdropFilter: "blur(4px)",
         borderRadius: "10px",
         border: "1px solid rgba(255, 255, 255, 0.18)",
     });
@@ -37,30 +37,32 @@ const Glassmorphism = () => {
             setSelectedColor(hexColor);
             setRgb(valoresRgb);
         }
-        console.log(valoresRgb)
         setStyles({
             background: `rgba(${valoresRgb.r},${valoresRgb.g},${valoresRgb.b}, ${nuevosValores.transparency})`,
             boxShadow: `0 4px 30px rgba(0, 0, 0, 0.1)`,
-            backdropFilter: `blur(${nuevosValores.blur}px)`,
-            WebkitBackdropFilter: `blur(${nuevosValores.blur}px)`,
+            // filter: `blur(${nuevosValores.blur}px)`,
+            // WebkitBackdropFilter: `blur(${nuevosValores.blur}px)`,
             borderRadius: "10px",
+            overflow:"hidden",
             border: `1px solid rgba(${valoresRgb.r},${valoresRgb.g},${valoresRgb.b},  ${nuevosValores.outline})`,
         });
     };
 
     return (
-        <div style={styles}>
-             <RangeSlider title={"transparency"} value={sliders.transparency} onChange={(e) => slidersOnChange(e, "transparency")} min={0}max={1} step={.1} />
-            <RangeSlider title={"blur"} value={sliders.blur} onChange={(e) => slidersOnChange(e, "blur")} min={0}max={20}  step={1}/>
-            <RangeSlider title={"Border transparency"} value={sliders.outline} onChange={(e) => slidersOnChange(e, "outline")} min={0}max={1} step={.1} />
-            <input
-                type="color"
-                value={selectedColor}
-                onChange={(e)=>slidersOnChange(e)}
-            />
+        <>
+            <div className="settings">
+                <RangeSlider title={"transparency"} value={sliders.transparency} onChange={(e) => slidersOnChange(e, "transparency")} min={0}max={1} step={.1} />
+                {/* <RangeSlider title={"blur"} value={sliders.blur} onChange={(e) => slidersOnChange(e, "blur")} min={0}max={20}  step={1}/> */}
+                <RangeSlider title={"Border transparency"} value={sliders.outline} onChange={(e) => slidersOnChange(e, "outline")} min={0}max={1} step={.1} />
+                <input
+                    type="color"
+                    value={selectedColor}
+                    onChange={(e)=>slidersOnChange(e)}
+                />
+            </div>
             
             <ResultComponent styles={styles} />
-        </div>
+        </>
     );
 };
 

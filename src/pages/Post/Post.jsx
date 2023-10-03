@@ -16,10 +16,11 @@ const Post = ({url}) => {
     const {id} = useParams();
     
     useEffect(()=>{
-        
-        fetch(url+id)
+        console.log(url)
+        fetch(url+"/componente/"+id)
         .then(res=>res.json())
         .then(data=>{
+            console.log(data)
             if(data._id){
                 console.log(data);   
                 setComponente(data);
@@ -30,7 +31,8 @@ const Post = ({url}) => {
                 setLoading(false);
             }
         })
-    },[id,url])
+    },[id,url]);
+
     return ( 
     <>
         <Header></Header>

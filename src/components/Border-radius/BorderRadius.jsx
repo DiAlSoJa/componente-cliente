@@ -37,9 +37,9 @@ const BorderRadius = () => {
 
 
     return ( 
-        <div>
-            <DropdownMenu/>
-            <div className="range__container">
+        <>
+
+            <div className="settings">
                 {false
                 ?
                 <>
@@ -76,7 +76,7 @@ const BorderRadius = () => {
             </div>
 
             <ResultComponent styles={styles}/>
-        </div>
+        </>
      );
 }
  

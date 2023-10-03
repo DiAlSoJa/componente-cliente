@@ -1,0 +1,65 @@
+.aside_generator{
+    position: fixed;
+    top: 60px;
+    left: -200px;
+    height: calc(100vh - 80px);
+    padding: 1rem;
+    transition: left .3s ease;
+    width: 200px;
+    z-index: 10000;
+    background-color: var(--color-background);
+}
+.aside_generator.active{
+    left: 0;
+}
+.aside_generator li{
+    padding: .5rem;
+    margin: 1rem 0;
+    background-color: aqua;
+    cursor: pointer;
+}
+.aside_generator a {
+    color:var(--color-letra);
+    display: block;
+    width: 100%;
+}
+.aside_generator .toggle{
+    position: absolute;
+    top: 0;
+    right: -60px;
+    font-size: 2rem;
+    color: var(--color-letra);
+    cursor: pointer;
+    background-color: var(--color-resalte);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.generador{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    min-height: 80vh;
+    /* flex-direction: column; */
+    /* max-width: 1300px; */
+
+}
+
+.generador .settings{
+    flex: 1;
+    padding: 0 3rem;
+    align-self: center;
+}
+@media (max-width:900px) {
+    .generador{
+ 
+        flex-direction: column;
+    }
+    .generador .settings{
+        width: 100%;
+        padding: 0 1rem;
+    }
+}

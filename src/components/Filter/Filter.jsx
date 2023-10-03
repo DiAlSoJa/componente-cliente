@@ -23,17 +23,19 @@ const Filter = () => {
     };
 
     return (
-        <div>
-            <RangeSlider title={"blur"} value={sliders.blur} onChange={(e) => slidersOnChange(e, "blur")} max={10} />
-            <RangeSlider title={"brightness"} value={sliders.brightness} onChange={(e) => slidersOnChange(e, "brightness")} max={200} />
-            <RangeSlider title={"contrast"} value={sliders.contrast} onChange={(e) => slidersOnChange(e, "contrast")} max={200} />
-            <RangeSlider title={"grayscale"} value={sliders.grayscale} onChange={(e) => slidersOnChange(e, "grayscale")} max={100} />
-            <RangeSlider title={"saturate"} value={sliders.saturate} onChange={(e) => slidersOnChange(e, "saturate")} max={200} />
-            <RangeSlider title={"hue-rotate"} value={sliders.hueRotate} onChange={(e) => slidersOnChange(e, "hueRotate")} max={360} />
-            <RangeSlider title={"invert"} value={sliders.invert} onChange={(e) => slidersOnChange(e, "invert")} max={100} />
+        <>
+            <div className="settings">
+                <RangeSlider title={"blur"} value={sliders.blur} onChange={(e) => slidersOnChange(e, "blur")} max={10} />
+                <RangeSlider title={"brightness"} value={sliders.brightness} onChange={(e) => slidersOnChange(e, "brightness")} max={200} />
+                <RangeSlider title={"contrast"} value={sliders.contrast} onChange={(e) => slidersOnChange(e, "contrast")} max={200} />
+                <RangeSlider title={"grayscale"} value={sliders.grayscale} onChange={(e) => slidersOnChange(e, "grayscale")} max={100} />
+                <RangeSlider title={"saturate"} value={sliders.saturate} onChange={(e) => slidersOnChange(e, "saturate")} max={200} />
+                <RangeSlider title={"hue-rotate"} value={sliders.hueRotate} onChange={(e) => slidersOnChange(e, "hueRotate")} max={360} />
+                <RangeSlider title={"invert"} value={sliders.invert} onChange={(e) => slidersOnChange(e, "invert")} max={100} />
+            </div>
 
             <ResultComponent styles={styles.filter ? styles : {}} />
-        </div>
+        </>
     );
 };
 
